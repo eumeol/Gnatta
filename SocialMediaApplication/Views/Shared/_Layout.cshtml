@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp" ng-cloak>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+</head>
+<body ng-controller="mainCtrl as vm">
+    @RenderBody()
+    @RenderSection("scripts", false)
+    @*Library*@
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @*Application*@
+    <script src="~/apps/app.js"></script>
+    @*Services*@
+    <script src="~/apps/Modules/gitService.js"></script>
+    @*Controller*@
+    <script src="~/apps/Controllers/mainCtrl.js"></script>
+    <script src="~/apps/Controllers/UserEditCtrl.js"></script>
+</body>
+</html>

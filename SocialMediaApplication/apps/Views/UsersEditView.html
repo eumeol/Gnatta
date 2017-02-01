@@ -1,0 +1,70 @@
+﻿
+<form class="form-horizontal"
+        name="userForm"
+        novalidate
+        ng-controller="UserEditCtrl as vm">
+    <fieldset>
+        <legend>Git User's Information</legend>
+        <div class="form-group"
+                ng-class="{'has-error':userForm.inputLogin.$invalid
+                            &&  userForm.inputLogin.$dirty}">
+            <label class="col-md-2 control-label"
+                    for="inputLogin">Login</label>
+            <div class="col-md-3">
+                <input class="form-control" id="inputLogin" 
+                        name="inputLogin" 
+                        type="text"                           
+                        ng-model="vm.login"
+                        required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="userForm.inputLogin.$error.required">
+                    User's login is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group"
+                ng-class="{'has-error':userForm.inputURL.$invalid
+                            &&  userForm.inputURL.$dirty}">
+            <label class="col-md-2 control-label"
+                    for="inputURL">URL</label>
+            <div class="col-md-3">
+                <input class="form-control" 
+                        id="inputURL" 
+                        name="inputURL" type="text"                           
+                        ng-model="vm.url"
+                        required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="userForm.inputURL.$error.required">
+                    User's URL is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            ng-click="vm.submit()"
+                            ng-disabled="userForm.$invalid">
+                        Save
+                    </button>
+                </span>
+                <span>
+                    <button class="btn btn-default"
+                            ng-click="vm.cancel(inputForm)">
+                        Cancel
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+                ng-show="vm.message">
+            <div class="col-md-6">
+                <pre>{{vm.message}}</pre>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
