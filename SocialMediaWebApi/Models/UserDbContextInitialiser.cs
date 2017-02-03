@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace SocialMediaWebApi.Models
 {
@@ -12,10 +9,10 @@ namespace SocialMediaWebApi.Models
         {
             var users = new List<User>
             {
-                 new User { Id=1, Login="First User", AvatarURL="https://avatars.githubusercontent.com/1"}
-                ,new User { Id=2, Login="Second User", AvatarURL="https://avatars.githubusercontent.com/2"}
-                ,new User { Id=3, Login="Third User", AvatarURL="https://avatars.githubusercontent.com/3"}
-                ,new User { Id=4, Login="Fourth User", AvatarURL="https://avatars.githubusercontent.com/4"}
+                 new User { Name="Name1", Login=1, Avatar_Url="https://avatars.githubusercontent.com/1", Location="UK"}
+                ,new User { Name="Name2", Login=2, Avatar_Url="https://avatars.githubusercontent.com/2", Location="NI"}
+                ,new User { Name="Name3", Login=3, Avatar_Url="https://avatars.githubusercontent.com/3", Location="EU"}
+                ,new User { Name="Name4", Login=4, Avatar_Url="https://avatars.githubusercontent.com/4", Location="US"}
             };
 
             users.ForEach(u => context.Users.Add(u));

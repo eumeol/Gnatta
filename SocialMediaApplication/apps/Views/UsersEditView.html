@@ -1,70 +1,34 @@
-﻿
-<form class="form-horizontal"
-        name="userForm"
-        novalidate
-        ng-controller="UserEditCtrl as vm">
-    <fieldset>
-        <legend>Git User's Information</legend>
-        <div class="form-group"
-                ng-class="{'has-error':userForm.inputLogin.$invalid
-                            &&  userForm.inputLogin.$dirty}">
-            <label class="col-md-2 control-label"
-                    for="inputLogin">Login</label>
-            <div class="col-md-3">
-                <input class="form-control" id="inputLogin" 
-                        name="inputLogin" 
-                        type="text"                           
-                        ng-model="vm.login"
-                        required />
+﻿<div ng-controller="UserEditCtrl as vm"> 
+    <form class="form-horizontal" name="editForm">
+        <h2>{{vm.message}}</h2>
+        <div class="form-group">        
+            <div class="col-sm-10">
+                <img ng-src={{vm.user.avatar_url}} alt={{vm.user.name}} class="img-circle center-block">
             </div>
-            <span class="help-block has-error">
-                <span ng-show="userForm.inputLogin.$error.required">
-                    User's login is required.
-                </span>
-            </span>
         </div>
-        <div class="form-group"
-                ng-class="{'has-error':userForm.inputURL.$invalid
-                            &&  userForm.inputURL.$dirty}">
-            <label class="col-md-2 control-label"
-                    for="inputURL">URL</label>
-            <div class="col-md-3">
-                <input class="form-control" 
-                        id="inputURL" 
-                        name="inputURL" type="text"                           
-                        ng-model="vm.url"
-                        required />
+        <div class="form-group input-group-sm">
+            <label for="inputLogin" class="col-sm-2 control-label">Login</label>
+            <div class="col-sm-10">
+                <input disabled type="text" class="form-control" id="inputLogin" placeholder={{vm.user.login}}>
             </div>
-            <span class="help-block has-error">
-                <span ng-show="userForm.inputURL.$error.required">
-                    User's URL is required.
-                </span>
-            </span>
         </div>
         <div class="form-group">
-            <div class="col-md-4 col-md-offset-2">
-                <span>
-                    <button class="btn btn-primary"
-                            ng-click="vm.submit()"
-                            ng-disabled="userForm.$invalid">
-                        Save
-                    </button>
-                </span>
-                <span>
-                    <button class="btn btn-default"
-                            ng-click="vm.cancel(inputForm)">
-                        Cancel
-                    </button>
-                </span>
+            <label for="inputName" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder={{vm.user.name}}>
             </div>
         </div>
-
-        <div class="form-group"
-                ng-show="vm.message">
-            <div class="col-md-6">
-                <pre>{{vm.message}}</pre>
+        <div class="form-group">
+            <label for="inputLocation" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder={{vm.user.location}}>
             </div>
         </div>
-
-    </fieldset>
-</form>
+        <div class="form-group">
+            <div class="col-sm-offset-5">
+                <button type="reset"  class="btn btn-default"  ng-click="vm.reset(vm.user)">Reset</button>
+                <button type="submit" class="btn btn-primary"  ng-click="vm.save(vm.user)">Insert to DB</button>
+            </div>
+        </div>
+    </form>
+</div>

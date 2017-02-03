@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace SocialMediaWebApi.Models
 {
@@ -16,17 +14,21 @@ namespace SocialMediaWebApi.Models
 
         public User GetUser(int id)
         {
-            throw new NotImplementedException();
+            return new User { Login=88};
         }
 
         public User Save(User user)
         {
-            throw new NotImplementedException();
+            _userDbContext.Users.Add(user);
+
+            _userDbContext.SaveChanges();
+
+            return user;
         }
 
         public User Save(int id, User user)
         {
-            throw new NotImplementedException();
+            return user;
         }
     }
 }

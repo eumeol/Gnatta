@@ -18,7 +18,7 @@ namespace SocialMediaApplication
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);          
 
             IContainer container = AutofacModule.BuildContainer();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

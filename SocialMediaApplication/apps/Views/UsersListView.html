@@ -1,14 +1,25 @@
-﻿<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Login</th>
-            <th>URL</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in vm.users">
-            <td>{{user.login}}</td>
-            <td>{{user.url}}</td>
-        </tr>
-    </tbody>
-</table>
+﻿<div ng-controller="mainCtrl as vm">
+    <div ng-controller="UserEditCtrl as ed">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>URL</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in vm.users | limitTo:10">
+                    <td>{{user.login}}</td>
+                    <td>{{user.url}}</td>
+                    <td>
+                        <a class="btn btn-primary"
+                           ng-click="ed.submit(user.id)">
+                            Detail
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
